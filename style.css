@@ -229,6 +229,10 @@ footer {
         display: flex;
     }
 
+    .cursor {
+        display: none;
+    }
+
     /* MOBILE MENU */
     .nav-links {
         position: fixed;
