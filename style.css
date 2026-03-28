@@ -372,3 +372,51 @@ h2 {
     width: 100%;
 }
 }
+
+/* TYPEWRITER TEXT */
+.typewriter {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: 0.85;
+}
+
+/* BLINKING CURSOR */
+.cursor-text {
+    animation: blink 1s infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00ffc3;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    z-index: 3000;
+}
+
+/* CURSOR GROW ON HOVER */
+.cursor.active {
+    transform: translate(-50%, -50%) scale(1.8);
+}
+
+/* SCROLL PROGRESS BAR */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #00ffc3;
+    z-index: 5000;
+}
