@@ -155,3 +155,5 @@ window.addEventListener("scroll", () => {
     document.body.style.setProperty('--scroll', progress + '%');
     document.body.querySelector("::before");
 });
+
+// 
