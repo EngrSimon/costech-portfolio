@@ -209,4 +209,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ============================
+    // CONTACT FORM → WHATSAPP
+    // ============================
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            const serviceText = service ? service.charAt(0).toUpperCase() + service.slice(1) : 'Not specified';
+            
+            const text = `Hi COSTECH! I'm ${name} (${email}).%0A%0A` +
+                         `Service: ${serviceText}%0A%0A` +
+                         `Project: ${message}`;
+                         
+            window.open(`https://wa.me/2349122009741?text=${text}`, '_blank');
+        });
+    }
+
 });
