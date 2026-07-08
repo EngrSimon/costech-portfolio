@@ -1,6 +1,4 @@
-/* ============================
-   COSTECH DIGITAL LAB — MODERN SAAS REDESIGN
-   ============================ */
+
 
 /* RESET */
 *, *::before, *::after {
@@ -1248,6 +1246,12 @@ footer {
    MOBILE RESPONSIVE
    ============================ */
 @media (max-width: 1024px) {
+
+.body{
+    overflow-x: hidden;
+    align-items: center;
+}
+
     .work-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1271,6 +1275,8 @@ footer {
         padding: 0 20px;
         height: 64px;
     }
+
+
 
     .menu-toggle {
         display: flex;
