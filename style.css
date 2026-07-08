@@ -1,5 +1,3 @@
-
-
 /* RESET */
 *, *::before, *::after {
     margin: 0;
@@ -11,6 +9,7 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 body {
@@ -19,6 +18,8 @@ body {
     color: #E8ECF4;
     overflow-x: hidden;
     line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 img {
@@ -225,6 +226,8 @@ a {
     position: relative;
     z-index: 2;
     max-width: 800px;
+    width: 100%;
+    padding: 0 16px;
 }
 
 .badge {
@@ -249,6 +252,7 @@ a {
     background: #10B981;
     border-radius: 50%;
     animation: pulse-dot 2s infinite;
+    flex-shrink: 0;
 }
 
 @keyframes pulse-dot {
@@ -258,15 +262,17 @@ a {
 
 .hero-content h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    font-size: clamp(2rem, 5.5vw, 5rem);
     font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -2.5px;
+    line-height: 1.1;
+    letter-spacing: -2px;
     margin-bottom: 20px;
     background: linear-gradient(180deg, #fff 0%, #94A3B8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero-content h1 span {
@@ -277,11 +283,14 @@ a {
 }
 
 .typewriter {
-    font-size: 1.15rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.15rem);
     color: #64748B;
     margin-bottom: 40px;
     font-weight: 400;
     min-height: 32px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 0 8px;
 }
 
 .typewriter .cursor-text {
@@ -409,6 +418,7 @@ a {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     text-align: center;
+    overflow: hidden;
 }
 
 .trust-label {
@@ -435,6 +445,7 @@ a {
     color: #334155;
     letter-spacing: -0.5px;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .trust-logo:hover {
@@ -458,6 +469,8 @@ a {
 
 .stat-item {
     text-align: center;
+    min-width: 0;
+    flex: 0 0 auto;
 }
 
 .stat-number {
@@ -467,6 +480,7 @@ a {
     color: #fff;
     letter-spacing: -1.5px;
     line-height: 1;
+    word-break: break-word;
 }
 
 .stat-label {
@@ -474,6 +488,7 @@ a {
     color: #64748B;
     margin-top: 8px;
     font-weight: 500;
+    word-break: break-word;
 }
 
 /* ============================
@@ -483,11 +498,13 @@ section {
     padding: 100px 24px;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .section-header {
     max-width: 600px;
     margin: 0 auto 60px;
+    padding: 0 16px;
 }
 
 .section-tag {
@@ -502,18 +519,21 @@ section {
 
 .section-header h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
     font-weight: 700;
     letter-spacing: -1px;
     color: #fff;
     margin-bottom: 16px;
     line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .section-header p {
     color: #64748B;
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
     line-height: 1.7;
+    word-break: break-word;
 }
 
 /* ============================
@@ -529,6 +549,7 @@ section {
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 .card {
@@ -540,6 +561,7 @@ section {
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     overflow: hidden;
+    min-width: 0;
 }
 
 .card::before {
@@ -576,27 +598,31 @@ section {
     background: rgba(99, 102, 241, 0.08);
     border: 1px solid rgba(99, 102, 241, 0.12);
     color: #818CF8;
+    flex-shrink: 0;
 }
 
 .card-icon svg {
     width: 22px;
     height: 22px;
     stroke: #818CF8;
+    flex-shrink: 0;
 }
 
 .card h3 {
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
     font-weight: 600;
     color: #fff;
     margin-bottom: 10px;
     font-family: 'Space Grotesk', sans-serif;
+    word-break: break-word;
 }
 
 .card p {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1.5vw, 0.9rem);
     color: #64748B;
     line-height: 1.6;
     margin-bottom: 16px;
+    word-break: break-word;
 }
 
 .card-link {
@@ -607,6 +633,7 @@ section {
     align-items: center;
     gap: 4px;
     transition: gap 0.3s ease;
+    word-break: break-word;
 }
 
 .card-link:hover {
@@ -635,6 +662,7 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    padding: 0 16px;
 }
 
 .process-step {
@@ -643,6 +671,7 @@ section {
     position: relative;
     border-right: 1px solid rgba(255,255,255,0.04);
     transition: all 0.4s ease;
+    min-width: 0;
 }
 
 .process-step:last-child {
@@ -675,7 +704,7 @@ section {
 
 .step-number {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
     font-weight: 700;
     color: rgba(99, 102, 241, 0.12);
     margin-bottom: 12px;
@@ -684,17 +713,19 @@ section {
 }
 
 .process-step h3 {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     font-weight: 600;
     color: #fff;
     margin-bottom: 10px;
     font-family: 'Space Grotesk', sans-serif;
+    word-break: break-word;
 }
 
 .process-step p {
-    font-size: 0.88rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.88rem);
     color: #64748B;
     line-height: 1.6;
+    word-break: break-word;
 }
 
 /* ============================
@@ -710,6 +741,7 @@ section {
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 .work-item {
@@ -717,6 +749,7 @@ section {
     overflow: hidden;
     cursor: pointer;
     position: relative;
+    min-width: 0;
 }
 
 .work-image {
@@ -766,19 +799,22 @@ section {
     width: fit-content;
     text-transform: uppercase;
     letter-spacing: 1px;
+    word-break: break-word;
 }
 
 .work-overlay h3 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     font-weight: 600;
     color: #fff;
     margin-bottom: 4px;
+    word-break: break-word;
 }
 
 .work-overlay p {
-    font-size: 0.85rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.85rem);
     color: #94A3B8;
+    word-break: break-word;
 }
 
 /* ============================
@@ -795,7 +831,7 @@ section {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 500px;
+    width: min(500px, 90vw);
     height: 300px;
     background: radial-gradient(ellipse, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
     z-index: 0;
@@ -809,6 +845,7 @@ section {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding: 0 16px;
 }
 
 .testimonial-card {
@@ -818,6 +855,7 @@ section {
     padding: 32px;
     text-align: left;
     transition: all 0.4s ease;
+    min-width: 0;
 }
 
 .testimonial-card:hover {
@@ -833,11 +871,12 @@ section {
 }
 
 .testimonial-text {
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
     color: #CBD5E1;
     line-height: 1.7;
     margin-bottom: 24px;
     font-style: italic;
+    word-break: break-word;
 }
 
 .testimonial-author {
@@ -864,11 +903,13 @@ section {
     font-weight: 600;
     color: #fff;
     margin-bottom: 2px;
+    word-break: break-word;
 }
 
 .author-info span {
     font-size: 0.8rem;
     color: #64748B;
+    word-break: break-word;
 }
 
 /* ============================
@@ -889,7 +930,7 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
+    width: min(600px, 90vw);
     height: 400px;
     background: radial-gradient(ellipse, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
     z-index: 0;
@@ -901,21 +942,25 @@ section {
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
+    padding: 0 16px;
 }
 
 .cta-content h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-size: clamp(1.5rem, 3vw, 2.6rem);
     font-weight: 700;
     letter-spacing: -1px;
     color: #fff;
     margin-bottom: 16px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .cta-content p {
     color: #64748B;
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
     margin-bottom: 32px;
+    word-break: break-word;
 }
 
 /* ============================
@@ -934,7 +979,7 @@ section {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px;
+    width: min(600px, 90vw);
     height: 400px;
     background: radial-gradient(ellipse, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
     z-index: 0;
@@ -949,27 +994,32 @@ section {
     position: relative;
     z-index: 1;
     align-items: start;
+    padding: 0 16px;
 }
 
 .contact-info {
     text-align: left;
+    min-width: 0;
 }
 
 .contact-info h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     font-weight: 700;
     letter-spacing: -1px;
     color: #fff;
     margin-bottom: 12px;
     line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .contact-info > p {
     color: #64748B;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     margin-bottom: 32px;
     line-height: 1.6;
+    word-break: break-word;
 }
 
 .contact-details {
@@ -998,9 +1048,10 @@ section {
 }
 
 .contact-item span {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1.5vw, 0.9rem);
     color: #CBD5E1;
     font-weight: 500;
+    word-break: break-word;
 }
 
 /* Contact Form */
@@ -1009,6 +1060,7 @@ section {
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 20px;
     padding: 40px;
+    min-width: 0;
 }
 
 .contact-form {
@@ -1028,6 +1080,7 @@ section {
     flex-direction: column;
     gap: 6px;
     text-align: left;
+    min-width: 0;
 }
 
 .form-group label {
@@ -1047,9 +1100,11 @@ section {
     padding: 12px 16px;
     color: #E8ECF4;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1.5vw, 0.9rem);
     transition: all 0.3s ease;
     outline: none;
+    width: 100%;
+    min-width: 0;
 }
 
 .form-group input:focus,
@@ -1090,6 +1145,7 @@ footer {
     background: #080C14;
     border-top: 1px solid rgba(255,255,255,0.04);
     padding: 60px 24px 0;
+    overflow: hidden;
 }
 
 .footer-top {
@@ -1119,6 +1175,7 @@ footer {
     font-size: 0.9rem;
     line-height: 1.6;
     max-width: 280px;
+    word-break: break-word;
 }
 
 .footer-links {
@@ -1148,6 +1205,7 @@ footer {
     color: #475569;
     font-size: 0.88rem;
     transition: color 0.3s ease;
+    word-break: break-word;
 }
 
 .footer-col a:hover {
@@ -1245,13 +1303,8 @@ footer {
 /* ============================
    MOBILE RESPONSIVE
    ============================ */
+
 @media (max-width: 1024px) {
-
-.body{
-    overflow-x: hidden;
-    align-items: center;
-}
-
     .work-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1275,8 +1328,6 @@ footer {
         padding: 0 20px;
         height: 64px;
     }
-
-
 
     .menu-toggle {
         display: flex;
@@ -1334,11 +1385,19 @@ footer {
         padding-top: 100px;
         min-height: auto;
         padding-bottom: 80px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .hero-content h1 {
-        font-size: 2.4rem;
-        letter-spacing: -1.5px;
+        font-size: clamp(1.6rem, 7vw, 2.4rem);
+        letter-spacing: -1px;
+        line-height: 1.15;
+    }
+
+    .typewriter {
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        min-height: 48px;
     }
 
     .hero-scroll {
@@ -1346,44 +1405,58 @@ footer {
     }
 
     .stats-bar {
-        gap: 40px;
-        padding: 40px 24px;
+        gap: 32px;
+        padding: 40px 16px;
     }
 
     .stat-number {
-        font-size: 2.2rem;
+        font-size: clamp(2rem, 6vw, 2.2rem);
+    }
+
+    .stat-label {
+        font-size: clamp(0.75rem, 2vw, 0.85rem);
     }
 
     .grid {
         grid-template-columns: 1fr;
         max-width: 400px;
+        padding: 0 16px;
     }
 
     .process-grid {
         grid-template-columns: 1fr;
+        padding: 0 16px;
     }
 
     .process-step {
         border-right: none !important;
         border-bottom: 1px solid rgba(255,255,255,0.04);
+        padding: 30px 20px;
     }
 
     .process-step:last-child {
         border-bottom: none;
     }
 
+    .step-number {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
     .work-grid {
         grid-template-columns: 1fr;
+        padding: 0 16px;
     }
 
     .testimonials-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
+        padding: 0 16px;
     }
 
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+        padding: 0 16px;
     }
 
     .contact-info {
@@ -1392,6 +1465,10 @@ footer {
 
     .contact-details {
         align-items: center;
+    }
+
+    .contact-form-wrapper {
+        padding: 24px;
     }
 
     .form-row {
@@ -1412,17 +1489,53 @@ footer {
     }
 
     section {
-        padding: 60px 20px;
+        padding: 60px 16px;
     }
 
     .trust-logos {
         gap: 24px;
     }
+
+    .trust-label {
+        font-size: clamp(0.65rem, 2vw, 0.75rem);
+    }
+
+    .trust-logo {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+
+    .cta-banner {
+        padding: 60px 16px;
+    }
+
+    .cta-content h2 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+    }
+
+    .section-header p {
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    }
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding-top: 80px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 8vw, 1.8rem);
+        letter-spacing: -0.5px;
+    }
+
+    .typewriter {
+        font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+        min-height: 56px;
     }
 
     .hero-buttons {
@@ -1435,9 +1548,195 @@ footer {
     .btn {
         width: 100%;
         justify-content: center;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    .stats-bar {
+        gap: 24px;
+        padding: 32px 12px;
+    }
+
+    .stat-item {
+        flex: 1 1 40%;
+        min-width: 120px;
+    }
+
+    .stat-number {
+        font-size: clamp(1.8rem, 7vw, 2rem);
+    }
+
+    .stat-label {
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+    }
+
+    .trust-bar {
+        padding: 30px 12px;
+    }
+
+    .trust-logos {
+        gap: 16px;
+    }
+
+    .trust-logo {
+        font-size: clamp(0.8rem, 3.5vw, 1rem);
+    }
+
+    .card {
+        padding: 28px 20px;
+    }
+
+    .process-step {
+        padding: 24px 16px;
+    }
+
+    .step-visual {
+        max-width: 160px;
+    }
+
+    .testimonial-card {
+        padding: 24px 20px;
+    }
+
+    .testimonial-text {
+        font-size: 0.85rem;
+    }
+
+    .work-overlay {
+        padding: 16px;
+    }
+
+    .work-overlay h3 {
+        font-size: 0.95rem;
+    }
+
+    .work-overlay p {
+        font-size: 0.8rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.85rem;
     }
 
     .footer-links {
         grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-col h4 {
+        margin-bottom: 12px;
+    }
+
+    .footer-col li {
+        margin-bottom: 8px;
+    }
+
+    .close {
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .lightbox img {
+        max-width: 95%;
+        max-height: 70%;
+    }
+
+    section {
+        padding: 48px 12px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .cta-banner {
+        padding: 48px 12px;
+    }
+
+    .contact-grid {
+        gap: 32px;
+    }
+
+    .contact-info h2 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+
+    .contact-item span {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .typewriter {
+        font-size: 0.75rem;
+    }
+
+    .badge {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .stats-bar {
+        gap: 20px;
+    }
+
+    .stat-item {
+        flex: 1 1 45%;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .card {
+        padding: 24px 16px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+
+    .testimonial-card {
+        padding: 20px 16px;
+    }
+
+    .testimonial-text {
+        font-size: 0.8rem;
+    }
+
+    .author-info h4 {
+        font-size: 0.85rem;
+    }
+
+    .author-info span {
+        font-size: 0.75rem;
     }
 }
