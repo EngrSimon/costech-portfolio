@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<base target="_blank">
 </head>
 <body>
 
@@ -18,15 +17,15 @@
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
     <div class="logo">
-        <a href="#home" target="_self"><img src="images/logo.png" alt="COS TECH Logo"></a>
+        <a href="#home"><img src="images/logo.png" alt="COS TECH Logo"></a>
     </div>
     <ul class="nav-links" id="nav-links">
-        <li><a href="#home" target="_self">Home</a></li>
-        <li><a href="#services" target="_self">Services</a></li>
-        <li><a href="#portfolio" target="_self">Process</a></li>
-        <li><a href="#work" target="_self">Work</a></li>
-        <li><a href="#testimonials" target="_self">Stories</a></li>
-        <li><a href="#contact" class="nav-cta" target="_self">Start Project</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Process</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#testimonials">Stories</a></li>
+        <li><a href="#contact" class="nav-cta">Start Project</a></li>
     </ul>
     <div class="menu-toggle" id="menu-toggle">
         <span></span>
@@ -52,8 +51,8 @@
             <span id="typed-text"></span><span class="cursor-text">|</span>
         </p>
         <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary" target="_self">Start Your Project</a>
-            <a href="#work" class="btn btn-secondary" target="_self">View Our Work</a>
+            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+            <a href="#work" class="btn btn-secondary">View Our Work</a>
         </div>
     </div>
     <div class="hero-scroll">
@@ -110,7 +109,7 @@
             </div>
             <h3>Mobile Apps</h3>
             <p>Native and cross-platform applications built with performance and user experience at the core.</p>
-            <a href="#contact" class="card-link" target="_self">Learn more <span>&rarr;</span></a>
+            <a href="#contact" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
         <div class="card hidden">
             <div class="card-icon">
@@ -118,7 +117,7 @@
             </div>
             <h3>Web Development</h3>
             <p>Responsive, high-performance websites and web apps that convert visitors into customers.</p>
-            <a href="#contact" class="card-link" target="_self">Learn more <span>&rarr;</span></a>
+            <a href="#contact" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
         <div class="card hidden">
             <div class="card-icon">
@@ -126,7 +125,7 @@
             </div>
             <h3>Motion Design</h3>
             <p>Captivating animations and video content that tell your brand story with impact.</p>
-            <a href="#contact" class="card-link" target="_self">Learn more <span>&rarr;</span></a>
+            <a href="#contact" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
         <div class="card hidden">
             <div class="card-icon">
@@ -134,7 +133,7 @@
             </div>
             <h3>Brand Identity</h3>
             <p>Strategic branding that creates lasting impressions and builds customer trust.</p>
-            <a href="#contact" class="card-link" target="_self">Learn more <span>&rarr;</span></a>
+            <a href="#contact" class="card-link">Learn more <span>&rarr;</span></a>
         </div>
     </div>
 </section>
@@ -282,7 +281,7 @@
                     <span>Product Lead, Firmware Solutions South Africa</span>
                 </div>
             </div>
-            
+
         </div>
         <div class="testimonial-card hidden">
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -338,36 +337,40 @@
                 </div>
             </div>
         </div>
+         
+        
         <div class="contact-form-wrapper hidden">
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you shortly.');">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="you@company.com" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Interested In</label>
-                    <select id="service">
-                        <option value="">Select a service</option>
-                        <option value="web">Web Development</option>
-                        <option value="app">Mobile App</option>
-                        <option value="branding">Brand Identity</option>
-                        <option value="motion">Motion Design</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" rows="4" placeholder="Tell us about your project..." required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-            </form>
+    <form class="contact-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+            </div>
         </div>
+        <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile App">Mobile App</option>
+                <option value="Brand Identity">Brand Identity</option>
+                <option value="Motion Design">Motion Design</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+    </form>
+</div>
+
+
     </div>
 </section>
 
@@ -382,19 +385,19 @@
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#services" target="_self">Web Development</a></li>
-                    <li><a href="#services" target="_self">Mobile Apps</a></li>
-                    <li><a href="#services" target="_self">Brand Identity</a></li>
-                    <li><a href="#services" target="_self">Motion Design</a></li>
+                    <li><a href="#services">Web Development</a></li>
+                    <li><a href="#services">Mobile Apps</a></li>
+                    <li><a href="#services">Brand Identity</a></li>
+                    <li><a href="#services">Motion Design</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#portfolio" target="_self">Our Process</a></li>
-                    <li><a href="#work" target="_self">Portfolio</a></li>
-                    <li><a href="#testimonials" target="_self">Testimonials</a></li>
-                    <li><a href="#contact" target="_self">Contact</a></li>
+                    <li><a href="#portfolio">Our Process</a></li>
+                    <li><a href="#work">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">

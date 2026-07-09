@@ -5,6 +5,31 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // ============================
+    // SUCCESS MESSAGE BANNER
+    // ============================
+    function showSuccessBanner(message) {
+        const existing = document.querySelector('.success-banner');
+        if (existing) existing.remove();
+
+        const banner = document.createElement('div');
+        banner.className = 'success-banner';
+        banner.innerHTML = `
+            <div class="success-banner-inner">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>${message}</span>
+                <button class="success-close" onclick="this.closest('.success-banner').remove()">×</button>
+            </div>
+        `;
+        document.body.appendChild(banner);
+
+        setTimeout(() => {
+            if (banner.parentElement) banner.remove();
+        }, 6000);
+    }
+
+    // ============================
     // NAV TOGGLE
     // ============================
     const menuBtn = document.getElementById('menu-toggle');
@@ -137,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 function updateCounter(currentTime) {
                     const elapsed = currentTime - start;
                     const progress = Math.min(elapsed / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
                     const current = Math.floor(eased * target);
                     entry.target.textContent = current + (isPercentage ? '' : '+');
 
@@ -155,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
     statNumbers.forEach(el => counterObserver.observe(el));
 
     // ============================
-    // LIGHTBOX (FIXED PROPERLY)
+    // LIGHTBOX
     // ============================
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
@@ -210,30 +235,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ============================
-    // CONTACT FORM → WHATSAPP
+    // CONTACT FORM → FORMSPREE (AJAX)
     // ============================
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value.trim();
-            
-            if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
-                return;
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch('https://formspree.io/f/xojooejp', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    contactForm.reset();
+                    showSuccessBanner('Message sent successfully! We will get back to you shortly.');
+                } else {
+                    showSuccessBanner('Something went wrong. Please try again or reach us on WhatsApp.');
+                }
+            } catch (error) {
+                showSuccessBanner('Something went wrong. Please try again or reach us on WhatsApp.');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             }
-            
-            const serviceText = service ? service.charAt(0).toUpperCase() + service.slice(1) : 'Not specified';
-            
-            const text = `Hi COSTECH! I'm ${name} (${email}).%0A%0A` +
-                         `Service: ${serviceText}%0A%0A` +
-                         `Project: ${message}`;
-                         
-            window.open(`https://wa.me/2349122009741?text=${text}`, '_blank');
         });
     }
 
